@@ -28,7 +28,7 @@ void ListInsert(List *list, int data); // tail에 데이터를 추가하는 방식
 void LinearSearch(List *list);
 int IsEmpty(List *list);
 int Count(List *list);
-void DeleteAll(List *list); // 생성된 데이터(node)를 모두 삭제하는 방식,삭제는 head부터
+void DeleteNode(List *list); // 생성된 데이터(node)를 모두 삭제하는 방식,삭제는 head부터
 
 int main()
 {
@@ -51,7 +51,7 @@ int main()
     
 
     printf("Delete Data\n");
-    DeleteAll(&list);
+    DeleteNode(&list);
     IsEmpty(&list);
     return 0;
 }
@@ -122,7 +122,7 @@ void LinearSearch(List *list)
     }
 }
 
-void DeleteAll(List *list)
+void DeleteNode(List *list)
 {
     Node *delNode; //이미 할당된 노드 해제하기 위해서 이렇게 쓰는 것
     //Node *delNode = (Node *)malloc(sizeof(Node)); 동적할당을 위해서 쓰는 것
