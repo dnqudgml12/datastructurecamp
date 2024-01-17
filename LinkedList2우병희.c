@@ -118,7 +118,7 @@ void ListInsertAscending(List *list, int data)
             list->curr = list->curr->next;
             // prev가 curr이 되면 curr은 다시 curr의 next로 간다
         }
-        if (list->prev == NULL)
+        if (list->prev == NULL)//시작점 일때
         {
             newNode->next = list->head;
             list->head = newNode;
