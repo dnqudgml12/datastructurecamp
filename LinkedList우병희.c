@@ -124,7 +124,8 @@ void LinearSearch(List *list)
 
 void DeleteAll(List *list)
 {
-    Node *delNode;
+    Node *delNode; //이미 할당된 노드 해제하기 위해서 이렇게 쓰는 것
+    //Node *delNode = (Node *)malloc(sizeof(Node)); 동적할당을 위해서 쓰는 것
     while (!IsEmpty(list))
     {
         delNode=list->head;
@@ -140,3 +141,16 @@ void DeleteAll(List *list)
 
 
 }
+
+/*
+이 선언은 새로운 Node 타입의 메모리 공간을 동적으로 할당합니다.
+malloc 함수는 지정된 크기(sizeof(Node))의 메모리 블록을 할당하고, 이 메모리 블록의 시작 주소를 반환합니다.
+이 방식은 새로운 Node를 생성할 때 사용됩니다. 즉, 연결 리스트에 새로운 노드를 추가할 때 이런 방식으로 메모리를 할당하고, 노드의 데이터 및 포인터를 설정합니다.
+동적 할당된 메모리는 사용 후 free() 함수를 호출하여 명시적으로 해제해야 합니다. 그렇지 않으면 메모리 누수가 발생할 수 있습니다.
+Node *delNode;:
+
+이 선언은 단순히 Node 타입의 포인터 변수 delNode를 선언합니다. 이 때, 실제 Node 타입의 메모리 공간은 할당되지 않습니다.
+delNode는 이미 존재하는 Node 객체를 가리키는 데 사용될 수 있습니다. 예를 들어, 연결 리스트의 노드를 가리키거나 순회하는 데 사용됩니다.
+이 방식은 새로운 메모리 할당이 필요하지 않은 상황에서 사용됩니다. 예를 들어, 리스트에서 노드를 삭제하는 경우, delNode를 사용하여 삭제할 노드를 가리키고 free() 함수로 메모리를 해제할 수 있습니다.
+따라서, Node *delNode = (No
+*/
