@@ -28,6 +28,7 @@ int Dequeue(List *list);
 int IsEmpty(List *list);
 
 int Count(List *list);
+void LinearSearch(List *list);
 
 int main()
 {
@@ -40,6 +41,8 @@ int main()
     Enqueue(&list, 18);
     Enqueue(&list, 22);
     Enqueue(&list, 30);
+    printf("Inside: \n");
+    LinearSearch(&list);
 
     printf("....\n");
     printf("Elements : ");
@@ -92,6 +95,18 @@ void Enqueue(List *list, int data)
 
     list->NumOfData++;
 }
+void LinearSearch(List *list)
+{
+    
+    Node *temp=list->head;
+    while (temp!=NULL){
+
+        printf("%d\n",temp->data);
+        temp=temp->next;
+
+
+    }
+}
 
 int Dequeue(List *list)
 {
@@ -111,6 +126,7 @@ int Dequeue(List *list)
     list->head = list->head->next;
     free(delNode);
     list->NumOfData--;
+    delNode=NULL;
 
     if (list->head == NULL)
     {

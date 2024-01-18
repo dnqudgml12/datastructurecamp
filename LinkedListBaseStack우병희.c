@@ -86,6 +86,7 @@ void Push(List *list, int data)
     
     Node *newNode=(Node*)malloc(sizeof(Node));
     newNode->data=data;
+    newNode->next=NULL;
     newNode->next=list->head;// 새로운 노드가 가르키는 것은 현재 stack의 top
     //list->head => stack->top; 하나
     /*
@@ -116,6 +117,7 @@ int Pop(List *list)
     list->head=list->head->next;
     //top이 가르키는 노드 즉 head를 빼내고 top은 두번째 노드(head->next)를 가리킴
     free(delNode);
+    delNode=NULL;
     list->NumOfData--;
 
     return retData;

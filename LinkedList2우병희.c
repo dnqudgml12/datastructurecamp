@@ -210,6 +210,7 @@ int Delete(List *list, int data)
         }
     }
     free(delNode); // 특정 변수 삭제 삭제하기 전에 이어주고 삭제
+    delNode=NULL;
     list->NumOfData--;
     return data;
 }
