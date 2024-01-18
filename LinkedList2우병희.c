@@ -183,6 +183,7 @@ int Delete(List *list, int data)
         list->prev = list->curr;
         list->curr = list->curr->next;
     }
+    
     if (list->curr == NULL) // 못찾았으면 curr이 이동하다가 최종끝인 NULL로 감
     // 맨끝 노드의 next는 NULL이니까
     {
