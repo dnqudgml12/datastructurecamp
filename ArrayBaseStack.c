@@ -93,6 +93,9 @@ void StackPush(Stack *s, int data)
         return;
     }
 
+   // ++s->top;
+    //s->arr[s->top]=data;
+
     s->arr[++s->top] = data; // top의 위치를 증가
     // top 시작이 인덱스를 -1로 되니 ++통해 0으로 증가
     
