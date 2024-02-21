@@ -114,6 +114,12 @@ void ListInsertAscending(List *list, int data)
         list->curr = list->head;
         while (list->curr != NULL && list->curr->data < data)
         {
+            /*
+            새 데이터가 삽입될 위치의 바로 전 노드(list->prev)와 바로 다음 노드(list->curr)를 찾음
+            */
+            //오름차순으로 정렬된 linkedlist에 새로운 노드를 넣는과정
+            // 리스트 순회하면서 삽입하려는 데이터보다 작은 데이터를 가진 노드를 찾고
+            // 삽입하려는 데이터가 현재노드(list-<curr)의 데이터보다 클때까지 리스트를 순
             list->prev = list->curr;
             list->curr = list->curr->next;
             // prev가 curr이 되면 curr은 다시 curr의 next로 간다
@@ -179,7 +185,9 @@ int Delete(List *list, int data)
 
     while (list->curr != NULL && list->curr->data != data)
     {
+/*
 
+리스트를 순회하면서 주어진 데이터와 일치하는 데이터를 가진 노드(list->curr)를 찾습니다. 데이터가 일치하지 않는 동안 리스트를 계속 순회합니다. 이 루프를 통해 삭제하고자 하는 노드를 정확히 식별할 수 있으며, 노드를 삭제하기 전에 list->prev와 list->curr 포인터를 적절히 설정하여 노드 삭제 후 리스트의 연결성을 유지할 수 있습니다.*/
         list->prev = list->curr;
         list->curr = list->curr->next;
     }

@@ -79,7 +79,13 @@ int IsEmpty(List *list)
 }
 void Push(List *list, int data)
 {
-    //STACK이니 앞에서 부터 쌓이는 느낌으로 넣는 거
+    //STACK이니 앞에서 부터 쌓이는 느낌으로 넣는 거(밑에서 위로 쌓이면서 top이 즉 head가 올라간다)
+    //stack에서 top은 stack의 가장 앞을 가리킴
+    // push수행시 top의 값이 삽입, pop시 top의 값이 삭제
+    //처음 값이 들어오면 맨처음 값이 top
+    // 이미 값이 저장되있다면 top이 새로운 값을 저장해야 하므로 
+    //기존에 들어온 값의 next가 top즉 head를 가리키고
+    //새로 들어온 값이 이제 head즉 top이 됨 
     // 그래서 list->head만 사용(새로운 노드를 생성하고 head에 추가)
     //먼저 쌓이는게 나중에 나가는 선입후출 형식
     // 그래서 앞에서 부터 쌓인다.
@@ -101,7 +107,7 @@ void Push(List *list, int data)
 
 int Pop(List *list)
 {
-    //스택의 맨 위에 쌓인 head 제거
+    //스택의 맨 위에 쌓인 head 제거(top이 제일 위에 있으므로)
     //head가 가리키는 노드를 제거하고, head를 다음 노드로 이동.
     // head가 여기서 top이다
     // top에서 하나씩 줄여나가는 느낌
